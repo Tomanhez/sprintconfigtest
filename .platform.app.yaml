@@ -1,0 +1,57 @@
+name: app
+type: php:7.2
+build:
+    flavor: composer
+
+variables:
+    env:
+        # Tell Symfony to always install in production-mode.
+        APP_ENV: 'prod'
+        APP_DEBUG: 0
+
+# The hooks that will be performed when the package is deployed.
+hooks:
+    build: |
+        set -e
+        yarn install
+        GULP_ENV=prod yarn build
+    deploy: |
+        set -e
+        rm -rf var/cache/*
+        mkdir -p public/media/image
+        bin/console sylius:install -n
+        bin/console sylius:fixtures:load -n
+        bin/console assets:install --symlink --relative public
+        bin/console cache:clear
+
+# The relationships of the application with services or other applications.
+# The left-hand side is the name of the relationship as it will be exposed
+# to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
+# side is in the form `<service name>:<endpoint name>`.
+relationships:
+    database: "mysqldb:mysql"
+
+dependencies:
+    nodejs:
+        yarn: "*"
+        gulp-cli: "*"
+
+# The size of the persistent disk of the application (in MB).
+disk: 2048
+
+# The mounts that will be performed when the package is deployed.
+mounts:
+    "/var/cache": "shared:files/cache"
+    "/var/log": "shared:files/log"
+    "/var/sessions": "shared:files/sessions"
+    "/public/uploads": "shared:files/uploads"
+    "/public/media": "shared:files/media"
+
+# The configuration of app when it is exposed to the web.
+web:
+    locations:
+        "/":
+            # The public directory of the app, relative to its root.
+            root: "public"
+            # The front-controller script to send non-static requests to.
+            passthru: "/index.php"
