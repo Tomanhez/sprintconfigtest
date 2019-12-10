@@ -55,3 +55,11 @@ web:
             root: "public"
             # The front-controller script to send non-static requests to.
             passthru: "/index.php"
+
+crons:
+    cleanup_cart:
+        spec: '0 */1 * * *'
+        cmd: '/usr/bin/flock -n /tmp/lock.app.cleanup_cart bin/console sylius:remove-expired-carts --env=prod --verbose'
+    cleanup_order:
+        spec: '0 */1 * * *'
+        cmd: '/usr/bin/flock -n /tmp/lock.app.cleanup_order bin/console sylius:cancel-unpaid-orders --env=prod --verbose'
