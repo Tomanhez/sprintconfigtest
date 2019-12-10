@@ -1,4 +1,4 @@
-db:
-    type: mariadb:10.4
-    disk: 2048
+dbmysql:
+    type: oracle-mysql:8.0
+    disk: 256
 
