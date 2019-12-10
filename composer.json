@@ -16,6 +16,7 @@
     ],
     "require": {
         "php": "^7.2",
+        "platformsh/symfonyflex-bridge": "^2.1",
         "sylius/sylius": "~1.6.0",
         "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2"
