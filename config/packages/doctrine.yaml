@@ -10,8 +10,8 @@ doctrine:
         #oracle config:
         driver: 'oci8'
         server_version: '5.7'
+        port: '3306'
         charset: UTF8
-        unix_socket: /var/lib/mysql/mysql.sock
         #mysql config:
 #        driver: 'pdo_mysql'
 #        server_version: '5.7'
