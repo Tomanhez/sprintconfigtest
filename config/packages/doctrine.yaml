@@ -8,9 +8,8 @@ parameters:
 doctrine:
     dbal:
         #oracle config:
-        driver: 'oci8'
+        driver: 'pdo_oci'
         server_version: '5.7'
-        port: '3306'
         charset: UTF8
         #mysql config:
 #        driver: 'pdo_mysql'
