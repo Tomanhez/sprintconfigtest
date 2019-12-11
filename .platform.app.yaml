@@ -29,7 +29,7 @@ hooks:
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
 relationships:
-    mysqldatabase: "mysqldb:mysql"
+    database: "db:mysql"
 
 dependencies:
     nodejs:
@@ -63,3 +63,4 @@ crons:
     cleanup_order:
         spec: '0 */1 * * *'
         cmd: '/usr/bin/flock -n /tmp/lock.app.cleanup_order bin/console sylius:cancel-unpaid-orders --env=prod --verbose'
+
