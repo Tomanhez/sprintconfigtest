@@ -7,14 +7,14 @@ parameters:
 
 doctrine:
     dbal:
-        #oracle config:
-        driver: 'pdo_oci'
-        server_version: '5.7'
-        charset: UTF8
-        #mysql config:
-#        driver: 'pdo_mysql'
+#        #oracle config:
+#        driver: 'pdo_oci'
 #        server_version: '5.7'
 #        charset: UTF8
+        #mysql config:
+        driver: 'pdo_mysql'
+        server_version: '5.7'
+        charset: UTF8
 
         url: '%env(resolve:DATABASE_URL)%'
     orm:
