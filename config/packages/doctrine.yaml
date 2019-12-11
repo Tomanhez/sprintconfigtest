@@ -15,6 +15,10 @@ doctrine:
         driver: 'pdo_mysql'
         server_version: '5.7'
         charset: UTF8
+        host: 'database.internal'
+        port: '3306'
+        user: 'user'
+        password: ''
 
         url: '%env(resolve:DATABASE_URL)%'
     orm:
