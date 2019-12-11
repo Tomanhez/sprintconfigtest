@@ -10,7 +10,7 @@ doctrine:
         #oracle config:
         driver: 'oci8'
         server_version: '5.7'
-        charset: AL32UTF8
+        charset: UTF8
         #mysql config:
 #        driver: 'pdo_mysql'
 #        server_version: '5.7'
