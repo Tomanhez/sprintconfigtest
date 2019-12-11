@@ -9,6 +9,7 @@ doctrine:
     dbal:
         #oracle config:
         driver: 'oci8'
+        port: '1521'
         server_version: '5.7'
         charset: UTF8
         #mysql config:
