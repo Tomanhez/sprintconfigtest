@@ -9,9 +9,10 @@ doctrine:
     dbal:
         #oracle config:
         driver: 'oci8'
-        port: '1521'
+        port: '%database_port%'
         server_version: '5.7'
         charset: UTF8
+        unix_socket: /var/lib/mysql/mysql.sock
         #mysql config:
 #        driver: 'pdo_mysql'
 #        server_version: '5.7'
