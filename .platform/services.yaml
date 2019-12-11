@@ -1,4 +1,4 @@
 dbmysql:
     type: oracle-mysql:5.7
-    disk: 256
+    disk: 1024
 
